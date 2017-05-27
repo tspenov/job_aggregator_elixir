@@ -9,4 +9,4 @@
 
 erl_crash.dump
 
-/config/prod.secrets.exs
+config/prod.secret.exs
