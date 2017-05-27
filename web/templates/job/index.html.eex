@@ -1,0 +1,32 @@
+<h2>Listing jobs</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Company</th>
+      <th>Date added</th>
+      <th>Tags</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for job <- @jobs do %>
+    <tr>
+      <td><%= link job.title, to: job_path(@conn, :show, job) %></td>
+      <td><%= job.company %></td>
+      <td><%= job.date_added%></td>
+      <% job_tags = job.tags |> Enum.map(&(&1.name)) %>
+      <td><%= job_tags |> Enum.join(", ") %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: job_path(@conn, :show, job), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: job_path(@conn, :edit, job), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: job_path(@conn, :delete, job), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New job", to: job_path(@conn, :new) %>

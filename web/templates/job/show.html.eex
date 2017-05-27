@@ -1,0 +1,33 @@
+<h2><%= @job.title %></h2>
+
+<ul>
+  <li>
+    <p/>
+    <strong>Description:</strong>
+    <%= raw(@job.description) %>
+  </li>
+
+  <li>
+    <strong>Company:</strong>
+    <%= @job.company %>
+  </li>
+
+  <li>
+    <strong>Apply url:</strong>
+    <a class="btn btn-info" href="<%= @job.apply_url %>"> Apply </a>
+  </li>
+
+  <li>
+    <strong>Source name:</strong>
+    <%= @job.source_name %>
+  </li>
+
+  <li>
+    <strong>Source url:</strong>
+    <%= @job.source_url %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: job_path(@conn, :edit, @job) %> |
+<%= link "Back", to: job_path(@conn, :index) %>

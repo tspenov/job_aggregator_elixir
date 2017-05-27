@@ -1,6 +1,12 @@
 /_build
-/cover
 /deps
+/doc
+/tmp
+/node_modules
+
+/installer/_build
+/installer/tmp
+
 erl_crash.dump
-*.ez
-*.beam
+
+config/prod.secret.exs
