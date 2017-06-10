@@ -9,19 +9,28 @@
 
     <title>Hello JobAgg!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
+    <nav class="light-blue">
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo">
+          Job aggregator
+        </a>
+        <ul class="right">
+          <%= if @conn.assigns[:user] do %>
+            <li> Logout </li>
+          <% else %>
+            <li>
+              <%= link "Sign in", to: '#' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
     <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
-
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 

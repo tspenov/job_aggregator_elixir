@@ -16,7 +16,7 @@ defmodule JobAgg.Router do
   scope "/", JobAgg do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", JobController, :index
     resources "/jobs", JobController
   end
 
