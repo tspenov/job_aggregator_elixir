@@ -20,12 +20,15 @@
           Job aggregator
         </a>
         <ul class="right">
-          <%= if @conn.assigns[:user] do %>
-            <li> Logout </li>
-          <% else %>
+          <%= if @current_user do %>
+            <li><%= @current_user.email %></li>
             <li>
-              <%= link "Sign in", to: '#' %>
+              <%= link "Log out", to: session_path(@conn, :delete, @current_user),
+                                  method: "delete" %>
             </li>
+          <% else %>
+            <li><%= link "Register", to: user_path(@conn, :new) %></li>
+            <li><%= link "Log in", to: session_path(@conn, :new) %></li>
           <% end %>
         </ul>
       </div>
