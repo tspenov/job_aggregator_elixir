@@ -9,6 +9,9 @@ use Mix.Config
 config :job_agg,
   ecto_repos: [JobAgg.Repo]
 
+config :job_agg, JobAgg.Mailer,
+  adapter: Bamboo.LocalAdapter
+
 # Configures the endpoint
 config :job_agg, JobAgg.Endpoint,
   url: [host: "localhost"],

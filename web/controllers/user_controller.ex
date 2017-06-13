@@ -23,6 +23,8 @@ defmodule JobAgg.UserController do
     changeset = User.registration_changeset(%User{}, user_params)
     case Repo.insert(changeset) do
       {:ok, user} ->
+        Email.welcome_text_email(user.email) |> JobAgg.Mailer.deliver_now
+
         conn
         |> JobAgg.Auth.login(user)
         |> put_flash(:info, "#{user.name} created!")
