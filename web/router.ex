@@ -1,5 +1,6 @@
 defmodule JobAgg.Router do
   use JobAgg.Web, :router
+  use ExAdmin.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -23,6 +24,10 @@ defmodule JobAgg.Router do
     resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
 
+  scope "/admin", ExAdmin do
+    pipe_through :browser
+    admin_routes()
+  end
 
   # Other scopes may use custom stacks.
   # scope "/api", JobAgg do
