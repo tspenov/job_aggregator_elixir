@@ -32,7 +32,7 @@ defmodule JobAgg.Job do
     |> Repo.preload(:tags)
     |> cast(
       params,
-      [:title, :date_added, :company, :description, :apply_url, :source_name, :source_url]
+      [:title, :date_added, :company, :description, :apply_url, :source_name, :source_url, :remote_id]
     )
     |> put_assoc(:tags, parse_tags(params))
   end
