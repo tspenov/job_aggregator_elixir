@@ -41,6 +41,7 @@ defmodule JobAgg.Mixfile do
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 3.0"},
      {:bamboo, "~> 0.8.0"},
+     {:ex_admin, github: "smpallen99/ex_admin"},
    ]
   end
 
