@@ -30,7 +30,9 @@ config :ex_admin,
   module: JobAgg,    # JobAgg.Web for phoenix >= 1.3.0-rc
   modules: [
     JobAgg.ExAdmin.Dashboard,
-    JobAgg.ExAdmin.User
+    JobAgg.ExAdmin.User,
+    JobAgg.ExAdmin.Job,
+    JobAgg.ExAdmin.Tag,
   ]
 
 # Import environment specific config. This must remain at the bottom
