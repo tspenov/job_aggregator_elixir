@@ -3,6 +3,13 @@ defmodule JobAgg.JobController do
 
   alias JobAgg.Job
 
+  def fetch_go_remote(conn, _params) do
+    Crawlers.GoRemote.fetch
+
+    conn
+    |> redirect(to: job_path(conn, :index))
+  end
+
   def index(conn, _params) do
     jobs = Job |> preload(:tags) |> order_by([t], t.id) |> Repo.all()
     render(conn, "index.html", jobs: jobs)

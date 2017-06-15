@@ -11,6 +11,7 @@ defmodule JobAgg.Job do
     field :source_name, :string
     field :source_url, :string
     field :date_added, :utc_datetime
+    field :remote_id, :string
 
     timestamps()
 
