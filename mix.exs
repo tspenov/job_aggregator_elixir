@@ -19,7 +19,7 @@ defmodule JobAgg.Mixfile do
   def application do
     [mod: {JobAgg, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :comeonin, :bamboo]]
+                    :phoenix_ecto, :postgrex, :comeonin, :bamboo, :httpoison]]
   end
 
   # Specifies which paths to compile per environment.
@@ -42,6 +42,7 @@ defmodule JobAgg.Mixfile do
      {:comeonin, "~> 3.0"},
      {:bamboo, "~> 0.8.0"},
      {:ex_admin, github: "smpallen99/ex_admin"},
+     {:httpoison, "~> 0.11.2"}
    ]
   end
 

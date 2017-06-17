@@ -11,6 +11,7 @@ defmodule JobAgg.Job do
     field :source_name, :string
     field :source_url, :string
     field :date_added, :utc_datetime
+    field :remote_id, :string
 
     timestamps()
 
@@ -31,8 +32,9 @@ defmodule JobAgg.Job do
     |> Repo.preload(:tags)
     |> cast(
       params,
-      [:title, :date_added, :company, :description, :apply_url, :source_name, :source_url]
+      [:title, :date_added, :company, :description, :apply_url, :source_name, :source_url, :remote_id]
     )
+    |> unique_constraint(:remote_id, name: :jobs_remote_id_index)
     |> put_assoc(:tags, parse_tags(params))
   end
 

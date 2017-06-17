@@ -19,6 +19,7 @@ defmodule JobAgg.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", JobController, :index
+    post "/jobs/fetch_go_remote", JobController, :fetch_go_remote
     resources "/jobs", JobController
     resources "/users", UserController, only: [:index, :show, :new, :create]
     resources "/sessions", SessionController, only: [:new, :create, :delete]

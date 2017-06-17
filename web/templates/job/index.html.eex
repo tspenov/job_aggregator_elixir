@@ -1,5 +1,9 @@
 <h2>Listing jobs</h2>
 
+<%= form_tag("/jobs/fetch_go_remote", method: "post") do %>
+  <button type="submit" name="button" class="btn btn-primary">Fetch jobs from GoRemote</button>
+<% end %>
+
 <table class="table">
   <thead>
     <tr>
