@@ -34,6 +34,7 @@ defmodule JobAgg.Job do
       params,
       [:title, :date_added, :company, :description, :apply_url, :source_name, :source_url, :remote_id]
     )
+    |> unique_constraint(:remote_id, name: :jobs_remote_id_index)
     |> put_assoc(:tags, parse_tags(params))
   end
 

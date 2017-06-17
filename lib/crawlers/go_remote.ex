@@ -1,7 +1,8 @@
 defmodule Crawlers.GoRemote do
   alias JobAgg.Job
-  alias JobAgg.Tag
   alias JobAgg.Repo
+
+  require Logger
 
   @job_site "https://goremote.io/api/jobs/"
   @source "go_remote"
@@ -24,7 +25,7 @@ defmodule Crawlers.GoRemote do
       remote_id: @source <> data["jobid"],
       tags: tags(data["tags"])
     }
-    Repo.insert!(Job.changeset(%Job{}, params))
+    Repo.insert(Job.changeset(%Job{}, params))
   end
 
   defp tags(tags) when is_list(tags) do
